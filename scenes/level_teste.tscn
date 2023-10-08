@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://yq7l5gorht3u"]
+
+[ext_resource type="PackedScene" uid="uid://x6p6bjkl41mr" path="res://scenes/ui.tscn" id="1_6nh67"]
+[ext_resource type="Script" path="res://scripts/level_teste.gd" id="1_vqs6h"]
+[ext_resource type="PackedScene" uid="uid://cvkayxtn0xl65" path="res://scenes/seguravel.tscn" id="2_l4xtj"]
+[ext_resource type="Resource" uid="uid://c638o5ykusfnt" path="res://figuras/figura_teste.tres" id="3_7tr5p"]
+[ext_resource type="Resource" uid="uid://but1axqygs2vu" path="res://figuras/figura_test0.tres" id="4_uhjun"]
+
+[node name="level_teste" type="Node2D"]
+script = ExtResource("1_vqs6h")
+rotulos = Array[Resource("res://scripts/figura.gd")]([ExtResource("3_7tr5p"), ExtResource("4_uhjun"), ExtResource("3_7tr5p")])
+
+[node name="seguravel" parent="." instance=ExtResource("2_l4xtj")]
+position = Vector2(376, 264)
+figura = ExtResource("3_7tr5p")
+
+[node name="seguravel2" parent="." instance=ExtResource("2_l4xtj")]
+position = Vector2(376, 376)
+figura = ExtResource("4_uhjun")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("1_6nh67")]
+size_flags_horizontal = 4
+
+[node name="Matriz" parent="CanvasLayer/Ui" index="0"]
+dados = Array[PackedInt32Array]([PackedInt32Array(2, -111, -201), PackedInt32Array(0, -285, -204), PackedInt32Array(1, -229, -270)])
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = -3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(29.1404, 16.2296)
+color = Color(0.121569, 0.0627451, 0.270588, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 328)
+zoom = Vector2(1.3, 1.3)
+
+[editable path="CanvasLayer/Ui"]

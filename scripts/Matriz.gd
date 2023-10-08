@@ -7,8 +7,10 @@ extends Node
 
 @export var dados: Array[PackedInt32Array]
 @export var eh_soma: bool 
+
 signal linha_movida(index: int, dir: int)
 signal coluna_movida(index: int, dir: int)
+
 
 func _ready() -> void: 
 	print("Original:")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://x6p6bjkl41mr"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_t23cu"]
+[ext_resource type="PackedScene" uid="uid://u1c2nt3njtlc" path="res://scenes/painel.tscn" id="2_4yo4k"]
+[ext_resource type="PackedScene" uid="uid://bj2wy0apfk1pj" path="res://scenes/matriz.tscn" id="2_5fbm0"]
+[ext_resource type="Script" path="res://scenes/Button.gd" id="4_0vfuc"]
+
+[node name="Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t23cu")
+painel_packed = ExtResource("2_4yo4k")
+
+[node name="Matriz" parent="." instance=ExtResource("2_5fbm0")]
+dados = Array[PackedInt32Array]([])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 597.0
+offset_top = 506.0
+offset_right = 665.0
+offset_bottom = 537.0
+theme_override_colors/icon_normal_color = Color(0.717647, 0.745098, 0.752941, 1)
+theme_override_colors/icon_pressed_color = Color(0.533333, 0.592157, 0.603922, 1)
+action_mode = 0
+text = "Cabeize"
+script = ExtResource("4_0vfuc")
+
+[connection signal="pressed" from="Button" to="." method="avalia"]

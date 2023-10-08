@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Figura" load_steps=3 format=3 uid="uid://c638o5ykusfnt"]
+
+[ext_resource type="Texture2D" uid="uid://bb54yqmd18hyu" path="res://icon.svg" id="1_h6bax"]
+[ext_resource type="Script" path="res://scripts/figura.gd" id="1_ni6sr"]
+
+[resource]
+script = ExtResource("1_ni6sr")
+imagem = ExtResource("1_h6bax")
+valor = 1
