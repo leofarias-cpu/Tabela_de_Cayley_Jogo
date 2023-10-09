@@ -9,12 +9,11 @@ var paineis: Array
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		avalia()
-
+		#$MarginContainer/area_matriz.set_size(grid.size, grid.global_position)
+	
 
 func _ready():
 	grid.columns = matriz.dados[0].size()
-	@warning_ignore("unused_variable")
-	var linhas: int = matriz.dados.size()
 	
 #Setup da matriz de paineis, de indices equivalentes da matriz de valores
 	for i in range(matriz.dados.size()):
@@ -22,9 +21,11 @@ func _ready():
 		
 		for j in range(matriz.dados[0].size()):
 			var painel = painel_packed.instantiate()
-			#painel.mim_procure.connect(encontra_querido)
 			paineis[i].append(painel)
+			painel.posicao = [i, j]
 			grid.add_child(painel)
+	#$MarginContainer/area_matriz.set_size(grid.size, grid.position)
+	print_debug("mandando :", grid.size)
 
 	
 func define_rotulos(rotulos: Array[Figura]) -> void:

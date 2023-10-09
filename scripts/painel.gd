@@ -1,21 +1,20 @@
 extends Panel
-@onready var Global = get_node("/root/Global")
 @onready var sprite = $Sprite2D
 @onready var label = $Label
 @export var valor: int = -99
 var selecionado = false
 var selecionavel = true
+var posicao: Array
 
-signal mim_procure(painel: Panel)
+signal mudei(posicao: Array, valor: int)
 
 func _process(delta) -> void:
 	if selecionado and Global.ta_segurando and selecionavel:
 		if Input.is_action_just_pressed("left_click"):
 			muda_figura(Global.figura_segurada)
-			Global.figura_segurada = null
-			Global.ta_segurando = false
+			Global.limpa()
 	if Input.is_action_just_pressed("right_click"):
-		mim_procure.emit(self)
+		pass
 
 func muda_texto(texto: String) -> void:
 	label.text = texto

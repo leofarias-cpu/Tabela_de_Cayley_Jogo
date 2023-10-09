@@ -50,6 +50,7 @@ func move_coluna(j, dir) -> void:
 		dados[i][j + dir] = selecionado
 	coluna_movida.emit(j, dir)
 		
+		
 func avalia() -> bool:
 	for i in range(1, dados.size()):
 		for j in range(1, dados[0].size()):

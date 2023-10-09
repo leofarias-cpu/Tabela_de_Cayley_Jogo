@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://x6p6bjkl41mr"]
+[gd_scene load_steps=7 format=3 uid="uid://x6p6bjkl41mr"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_t23cu"]
 [ext_resource type="PackedScene" uid="uid://u1c2nt3njtlc" path="res://scenes/painel.tscn" id="2_4yo4k"]
 [ext_resource type="PackedScene" uid="uid://bj2wy0apfk1pj" path="res://scenes/matriz.tscn" id="2_5fbm0"]
 [ext_resource type="Script" path="res://scenes/Button.gd" id="4_0vfuc"]
+[ext_resource type="Script" path="res://scenes/area_matriz.gd" id="4_uyxxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt6l7"]
+size = Vector2(0, 0)
 
 [node name="Ui" type="Control"]
 layout_mode = 3
@@ -16,7 +20,7 @@ script = ExtResource("1_t23cu")
 painel_packed = ExtResource("2_4yo4k")
 
 [node name="Matriz" parent="." instance=ExtResource("2_5fbm0")]
-dados = Array[PackedInt32Array]([])
+dados = Array[PackedInt32Array]([PackedInt32Array(2, 0, 1), PackedInt32Array(0, 0, 1), PackedInt32Array(1, 1, 0)])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -32,6 +36,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 3
 
+[node name="area_matriz" type="Area2D" parent="MarginContainer"]
+position = Vector2(628, 382)
+scale = Vector2(1.1, 1.1)
+script = ExtResource("4_uyxxv")
+
+[node name="colisao_matriz" type="CollisionShape2D" parent="MarginContainer/area_matriz"]
+shape = SubResource("RectangleShape2D_rt6l7")
+
 [node name="Button" type="Button" parent="."]
 visible = false
 layout_mode = 0
@@ -45,4 +57,16 @@ action_mode = 0
 text = "Cabeize"
 script = ExtResource("4_0vfuc")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.156863, 0.0509804, 0.231373, 1)
+
+[connection signal="mouse_entered" from="MarginContainer/area_matriz" to="MarginContainer/area_matriz" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/area_matriz" to="MarginContainer/area_matriz" method="_on_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="avalia"]
