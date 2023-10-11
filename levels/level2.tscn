@@ -1,0 +1,36 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjgngqh3orirj"]
+
+[ext_resource type="Script" path="res://scripts/level_teste.gd" id="1_ltctl"]
+[ext_resource type="Script" path="res://scripts/figura.gd" id="2_uo6eu"]
+[ext_resource type="Resource" uid="uid://clqt2twt56p32" path="res://figuras/passaro_azul0.tres" id="3_pojwk"]
+[ext_resource type="Resource" uid="uid://cwuvx0w37a74p" path="res://figuras/passaro_verde1.tres" id="4_cgst0"]
+[ext_resource type="Resource" uid="uid://ct5eoq2bepidi" path="res://figuras/passaro_marrom2.tres" id="5_6iejb"]
+[ext_resource type="Resource" uid="uid://tx3q56gwjmdy" path="res://figuras/passaro_vermelho3.tres" id="6_to5p6"]
+[ext_resource type="PackedScene" uid="uid://x6p6bjkl41mr" path="res://scenes/ui.tscn" id="7_c07sw"]
+
+[sub_resource type="Resource" id="Resource_b4wga"]
+script = ExtResource("2_uo6eu")
+valor = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obii1"]
+size = Vector2(320, 305.455)
+
+[node name="level2" type="Node2D"]
+script = ExtResource("1_ltctl")
+rotulos = Array[ExtResource("2_uo6eu")]([SubResource("Resource_b4wga"), ExtResource("3_pojwk"), ExtResource("4_cgst0"), ExtResource("5_6iejb"), ExtResource("6_to5p6")])
+iniciais = Array[String](["11", "1243", "31", "14"])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("7_c07sw")]
+
+[node name="Matriz" parent="CanvasLayer/Ui" index="0"]
+dados = Array[PackedInt32Array]([PackedInt32Array(5, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0)])
+eh_soma = false
+
+[node name="colisao_matriz" parent="CanvasLayer/Ui/MarginContainer/AspectRatioContainer/Control/area_matriz" index="0"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_obii1")
+
+[editable path="CanvasLayer/Ui"]

@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://mqu8e2yrlx1d"]
+[gd_scene load_steps=3 format=3 uid="uid://mqu8e2yrlx1d"]
 
 [ext_resource type="Script" path="res://scripts/global.gd" id="1_qpnem"]
+[ext_resource type="PackedScene" uid="uid://da7fkgr7a2rjq" path="res://scenes/level_select.tscn" id="2_hf7qf"]
 
 [node name="Global" type="Sprite2D"]
 z_index = -1
 z_as_relative = false
 script = ExtResource("1_qpnem")
+niveis_completos = Array[bool]([false, false, false, false, false])
+level_select = ExtResource("2_hf7qf")

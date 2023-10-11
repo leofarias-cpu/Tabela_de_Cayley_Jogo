@@ -65,7 +65,9 @@ func define_figuras_iniciais(posicoes, rotulos) -> void:
 func avalia() -> void:
 	matriz.exibe_dados()
 	if matriz.avalia():
-		pass
+		Global.niveis_completos[Global.nivel_atual] = true
+		await get_tree().create_timer(3).timeout
+		Global.volta_pro_level_select()
 	else:
 		await get_tree().create_timer(3).timeout
 		reseta_quadrados()

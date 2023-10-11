@@ -1,0 +1,70 @@
+[gd_scene load_steps=18 format=3 uid="uid://b1gfxjkys024o"]
+
+[ext_resource type="Script" path="res://scripts/level_teste.gd" id="1_8380o"]
+[ext_resource type="Script" path="res://scripts/figura.gd" id="2_1bxfs"]
+[ext_resource type="PackedScene" uid="uid://x6p6bjkl41mr" path="res://scenes/ui.tscn" id="3_oaoqp"]
+[ext_resource type="Texture2D" uid="uid://7engue4x6pkh" path="res://figuras/imagens/c.png" id="4_887ls"]
+[ext_resource type="Texture2D" uid="uid://ctugtqnuap4qt" path="res://figuras/imagens/js.png" id="6_jcnrq"]
+[ext_resource type="Texture2D" uid="uid://ftqq88hkoqvn" path="res://figuras/imagens/ts.png" id="7_nwq0p"]
+[ext_resource type="Texture2D" uid="uid://dnqnjbv3et8ar" path="res://figuras/imagens/ruby.png" id="8_igqqh"]
+[ext_resource type="Texture2D" uid="uid://ssfa31topkff" path="res://figuras/imagens/kotlin_teste.png" id="15_mk7bo"]
+[ext_resource type="Texture2D" uid="uid://b0sbjud1ai7y1" path="res://figuras/imagens/c2.png" id="16_gjuqq"]
+
+[sub_resource type="Resource" id="Resource_a5m26"]
+script = ExtResource("2_1bxfs")
+valor = 7
+
+[sub_resource type="Resource" id="Resource_l6j54"]
+script = ExtResource("2_1bxfs")
+imagem = ExtResource("4_887ls")
+valor = 6
+
+[sub_resource type="Resource" id="Resource_j3arl"]
+script = ExtResource("2_1bxfs")
+imagem = ExtResource("16_gjuqq")
+valor = 5
+
+[sub_resource type="Resource" id="Resource_n5gom"]
+script = ExtResource("2_1bxfs")
+imagem = ExtResource("15_mk7bo")
+valor = 4
+
+[sub_resource type="Resource" id="Resource_76krk"]
+script = ExtResource("2_1bxfs")
+imagem = ExtResource("6_jcnrq")
+valor = 3
+
+[sub_resource type="Resource" id="Resource_x6bp7"]
+script = ExtResource("2_1bxfs")
+imagem = ExtResource("7_nwq0p")
+valor = 2
+
+[sub_resource type="Resource" id="Resource_xo7ug"]
+script = ExtResource("2_1bxfs")
+imagem = ExtResource("8_igqqh")
+valor = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wavcr"]
+size = Vector2(370.909, 370.909)
+
+[node name="level4" type="Node2D"]
+script = ExtResource("1_8380o")
+rotulos = Array[ExtResource("2_1bxfs")]([SubResource("Resource_a5m26"), SubResource("Resource_l6j54"), SubResource("Resource_j3arl"), SubResource("Resource_n5gom"), SubResource("Resource_76krk"), SubResource("Resource_x6bp7"), SubResource("Resource_xo7ug")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("3_oaoqp")]
+
+[node name="Matriz" parent="CanvasLayer/Ui" index="0"]
+dados = Array[PackedInt32Array]([PackedInt32Array(7, 0, 1, 0, 0, 0, 0), PackedInt32Array(0, 0, 1, 0, 0, 0, 0), PackedInt32Array(1, 1, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0)])
+eh_soma = false
+
+[node name="colisao_matriz" parent="CanvasLayer/Ui/MarginContainer/AspectRatioContainer/Control/area_matriz" index="0"]
+position = Vector2(32.7272, 32.7272)
+shape = SubResource("RectangleShape2D_wavcr")
+
+[node name="caixa_seguraveis" parent="CanvasLayer/Ui/MarginContainer" index="2"]
+columns = 2
+
+[editable path="CanvasLayer/Ui"]

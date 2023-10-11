@@ -1,58 +1,73 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddda1616d50uf"]
+[gd_scene load_steps=16 format=3 uid="uid://c4ird3g0ejfip"]
 
 [ext_resource type="Script" path="res://scripts/level_teste.gd" id="1_onkgc"]
 [ext_resource type="Script" path="res://scripts/figura.gd" id="2_7cvss"]
 [ext_resource type="PackedScene" uid="uid://x6p6bjkl41mr" path="res://scenes/ui.tscn" id="3_cljyn"]
 
-[sub_resource type="Resource" id="Resource_vw4wi"]
+[sub_resource type="Resource" id="Resource_57bub"]
 script = ExtResource("2_7cvss")
-valor = 6
+valor = 11
 
-[sub_resource type="Resource" id="Resource_48dqd"]
-script = ExtResource("2_7cvss")
-valor = 0
-
-[sub_resource type="Resource" id="Resource_f14op"]
+[sub_resource type="Resource" id="Resource_r78bf"]
 script = ExtResource("2_7cvss")
 valor = 1
 
-[sub_resource type="Resource" id="Resource_7q2em"]
+[sub_resource type="Resource" id="Resource_ixlpk"]
 script = ExtResource("2_7cvss")
 valor = 2
 
-[sub_resource type="Resource" id="Resource_s0jjk"]
+[sub_resource type="Resource" id="Resource_4jjtt"]
 script = ExtResource("2_7cvss")
 valor = 3
 
-[sub_resource type="Resource" id="Resource_217cg"]
+[sub_resource type="Resource" id="Resource_dcefq"]
 script = ExtResource("2_7cvss")
 valor = 4
 
-[sub_resource type="Resource" id="Resource_fg14i"]
+[sub_resource type="Resource" id="Resource_3jenw"]
 script = ExtResource("2_7cvss")
 valor = 5
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eusjv"]
-size = Vector2(378.182, 378.182)
+[sub_resource type="Resource" id="Resource_3ypdn"]
+script = ExtResource("2_7cvss")
+valor = 6
+
+[sub_resource type="Resource" id="Resource_16q6m"]
+script = ExtResource("2_7cvss")
+valor = 7
+
+[sub_resource type="Resource" id="Resource_fccjy"]
+script = ExtResource("2_7cvss")
+valor = 8
+
+[sub_resource type="Resource" id="Resource_3i0xw"]
+script = ExtResource("2_7cvss")
+valor = 9
+
+[sub_resource type="Resource" id="Resource_pewlo"]
+script = ExtResource("2_7cvss")
+valor = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdi21"]
+size = Vector2(640, 669.091)
 
 [node name="level5" type="Node2D"]
 script = ExtResource("1_onkgc")
-rotulos = Array[ExtResource("2_7cvss")]([SubResource("Resource_vw4wi"), SubResource("Resource_48dqd"), SubResource("Resource_f14op"), SubResource("Resource_7q2em"), SubResource("Resource_s0jjk"), SubResource("Resource_217cg"), SubResource("Resource_fg14i")])
-iniciais = Array[String](["11", "1224", "4655", "32", "", "6152"])
+rotulos = Array[ExtResource("2_7cvss")]([SubResource("Resource_57bub"), SubResource("Resource_r78bf"), SubResource("Resource_ixlpk"), SubResource("Resource_4jjtt"), SubResource("Resource_dcefq"), SubResource("Resource_3jenw"), SubResource("Resource_3ypdn"), SubResource("Resource_16q6m"), SubResource("Resource_fccjy"), SubResource("Resource_3i0xw"), SubResource("Resource_pewlo")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
 
 [node name="Ui" parent="CanvasLayer" instance=ExtResource("3_cljyn")]
 
 [node name="Matriz" parent="CanvasLayer/Ui" index="0"]
-dados = Array[PackedInt32Array]([PackedInt32Array(6, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0)])
+dados = Array[PackedInt32Array]([PackedInt32Array(10, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)])
+eh_soma = false
 
 [node name="colisao_matriz" parent="CanvasLayer/Ui/MarginContainer/AspectRatioContainer/Control/area_matriz" index="0"]
-position = Vector2(29.0909, 29.0909)
-shape = SubResource("RectangleShape2D_eusjv")
+position = Vector2(29.0909, 7.27271)
+shape = SubResource("RectangleShape2D_vdi21")
 
-[node name="ColorRect" parent="CanvasLayer/Ui" index="2"]
-z_index = -5
+[node name="caixa_seguraveis" parent="CanvasLayer/Ui/MarginContainer" index="2"]
+columns = 2
 
 [editable path="CanvasLayer/Ui"]

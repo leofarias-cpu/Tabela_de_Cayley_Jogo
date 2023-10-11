@@ -22,6 +22,7 @@ shape = SubResource("RectangleShape2D_wmn42")
 [node name="Sprite2D" type="Sprite2D" parent="seguravel"]
 
 [node name="Label" type="Label" parent="seguravel"]
+visible = false
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0

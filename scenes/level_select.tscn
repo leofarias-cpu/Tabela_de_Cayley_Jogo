@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://da7fkgr7a2rjq"]
+
+[ext_resource type="Script" path="res://scripts/level_select.gd" id="1_6g81s"]
+[ext_resource type="PackedScene" uid="uid://yq7l5gorht3u" path="res://levels/level1.tscn" id="2_jvf4y"]
+[ext_resource type="PackedScene" uid="uid://bjgngqh3orirj" path="res://levels/level2.tscn" id="3_ltiow"]
+[ext_resource type="PackedScene" uid="uid://ddda1616d50uf" path="res://levels/level3/level_3.tscn" id="4_dn4l4"]
+[ext_resource type="PackedScene" uid="uid://b1gfxjkys024o" path="res://levels/level4/level_4.tscn" id="5_v0f8k"]
+[ext_resource type="PackedScene" uid="uid://c4ird3g0ejfip" path="res://levels/level5/level_5.tscn" id="6_1w70w"]
+[ext_resource type="Texture2D" uid="uid://c2js0ssx4pk5g" path="res://figuras/imagens/passaro_vermelho.png" id="7_0mnn8"]
+[ext_resource type="Texture2D" uid="uid://basgvoard2ofm" path="res://figuras/imagens/suit_hearts.png" id="7_m3dqn"]
+[ext_resource type="PackedScene" uid="uid://bsm6vm7st2h68" path="res://scenes/level_selec_button.tscn" id="7_ps5er"]
+[ext_resource type="Texture2D" uid="uid://no4jsgq51c1j" path="res://figuras/imagens/passaro_amarelo.png" id="8_erc42"]
+
+[node name="level_select" type="CanvasLayer" node_paths=PackedStringArray("botoes")]
+script = ExtResource("1_6g81s")
+niveis = Array[PackedScene]([ExtResource("2_jvf4y"), ExtResource("3_ltiow"), ExtResource("4_dn4l4"), ExtResource("5_v0f8k"), ExtResource("6_1w70w")])
+trofeis = Array[Texture2D]([ExtResource("7_m3dqn"), ExtResource("8_erc42")])
+botoes = NodePath("MarginContainer/AspectRatioContainer/VBoxContainer/botoes_niveis")
+botao_packed = ExtResource("7_ps5er")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.156863, 0.0509804, 0.231373, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 160
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 160
+theme_override_constants/margin_bottom = 20
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/AspectRatioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/AspectRatioContainer/VBoxContainer/Control"]
+texture = ExtResource("7_0mnn8")
+
+[node name="botoes_niveis" type="HBoxContainer" parent="MarginContainer/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 100

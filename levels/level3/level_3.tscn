@@ -1,0 +1,69 @@
+[gd_scene load_steps=18 format=3 uid="uid://ddda1616d50uf"]
+
+[ext_resource type="Script" path="res://scripts/level_teste.gd" id="1_qmbl2"]
+[ext_resource type="Script" path="res://scripts/figura.gd" id="2_qaujf"]
+[ext_resource type="PackedScene" uid="uid://x6p6bjkl41mr" path="res://scenes/ui.tscn" id="3_3ie17"]
+[ext_resource type="Texture2D" uid="uid://2fq6mqdhocj7" path="res://figuras/imagens/virus0.png" id="3_lwqlr"]
+[ext_resource type="Texture2D" uid="uid://cssqev2g2tu1b" path="res://figuras/imagens/virus1.png" id="4_wxnrr"]
+[ext_resource type="Texture2D" uid="uid://lrr7t0emxvfj" path="res://figuras/imagens/virus2.png" id="5_2fhbr"]
+[ext_resource type="Texture2D" uid="uid://jkxu5i37aqu6" path="res://figuras/imagens/virus3.png" id="6_8v4nf"]
+[ext_resource type="Texture2D" uid="uid://c45052qach30f" path="res://figuras/imagens/virus4.png" id="7_vlwq7"]
+[ext_resource type="Texture2D" uid="uid://c2aesruyuaoha" path="res://figuras/imagens/virus5.png" id="8_yhe0s"]
+
+[sub_resource type="Resource" id="Resource_vw4wi"]
+script = ExtResource("2_qaujf")
+valor = 6
+
+[sub_resource type="Resource" id="Resource_48dqd"]
+script = ExtResource("2_qaujf")
+imagem = ExtResource("3_lwqlr")
+valor = 0
+
+[sub_resource type="Resource" id="Resource_f14op"]
+script = ExtResource("2_qaujf")
+imagem = ExtResource("4_wxnrr")
+valor = 1
+
+[sub_resource type="Resource" id="Resource_7q2em"]
+script = ExtResource("2_qaujf")
+imagem = ExtResource("5_2fhbr")
+valor = 2
+
+[sub_resource type="Resource" id="Resource_s0jjk"]
+script = ExtResource("2_qaujf")
+imagem = ExtResource("6_8v4nf")
+valor = 3
+
+[sub_resource type="Resource" id="Resource_217cg"]
+script = ExtResource("2_qaujf")
+imagem = ExtResource("7_vlwq7")
+valor = 4
+
+[sub_resource type="Resource" id="Resource_fg14i"]
+script = ExtResource("2_qaujf")
+imagem = ExtResource("8_yhe0s")
+valor = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eusjv"]
+size = Vector2(378.182, 378.182)
+
+[node name="level3" type="Node2D"]
+script = ExtResource("1_qmbl2")
+rotulos = Array[ExtResource("2_qaujf")]([SubResource("Resource_vw4wi"), SubResource("Resource_48dqd"), SubResource("Resource_f14op"), SubResource("Resource_7q2em"), SubResource("Resource_s0jjk"), SubResource("Resource_217cg"), SubResource("Resource_fg14i")])
+iniciais = Array[String](["11", "12", "4655", "32", "24", "6152"])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("3_3ie17")]
+
+[node name="Matriz" parent="CanvasLayer/Ui" index="0"]
+dados = Array[PackedInt32Array]([PackedInt32Array(6, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0)])
+
+[node name="colisao_matriz" parent="CanvasLayer/Ui/MarginContainer/AspectRatioContainer/Control/area_matriz" index="0"]
+shape = SubResource("RectangleShape2D_eusjv")
+
+[node name="ColorRect" parent="CanvasLayer/Ui" index="2"]
+z_index = -5
+
+[editable path="CanvasLayer/Ui"]
