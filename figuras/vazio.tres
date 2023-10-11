@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Figura" load_steps=3 format=3 uid="uid://hqrlon4wfvi3"]
+
+[ext_resource type="Script" path="res://scripts/figura.gd" id="1_7g1pp"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_urwub"]
+
+[resource]
+script = ExtResource("1_7g1pp")
+imagem = SubResource("ImageTexture_urwub")
+valor = -99

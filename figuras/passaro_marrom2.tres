@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Figura" load_steps=3 format=3 uid="uid://ct5eoq2bepidi"]
+
+[ext_resource type="Texture2D" uid="uid://dxvap4e4xh8kk" path="res://figuras/imagens/passaro_marrom.png" id="1_shyri"]
+[ext_resource type="Script" path="res://scripts/figura.gd" id="2_b2t3g"]
+
+[resource]
+script = ExtResource("2_b2t3g")
+imagem = ExtResource("1_shyri")
+valor = 3

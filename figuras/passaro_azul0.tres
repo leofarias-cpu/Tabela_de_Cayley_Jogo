@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Figura" load_steps=3 format=3 uid="uid://clqt2twt56p32"]
+
+[ext_resource type="Script" path="res://scripts/figura.gd" id="1_1sdpo"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1xam0"]
+load_path = "res://.godot/imported/passaro_azul.png-b14e7f0c37dd338d9f290b8a75dfc117.ctex"
+
+[resource]
+script = ExtResource("1_1sdpo")
+imagem = SubResource("CompressedTexture2D_1xam0")
+valor = 1

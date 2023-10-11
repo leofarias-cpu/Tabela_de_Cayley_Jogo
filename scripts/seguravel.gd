@@ -1,13 +1,13 @@
-extends Area2D
+extends Control
 @export var figura: Figura
-@onready var sprite = $Sprite2D
-@onready var label = $Label
+@export var sprite: Sprite2D
+@export var label = Label
 @onready var Global = get_node("/root/Global")
 var selecionado = false
 
-func _ready() -> void:
-	sprite.texture = figura.imagem
-	label.text = str(figura.valor)
+#func _ready() -> void:
+	#sprite.texture = figura.imagem
+	#label.text = str(figura.valor)
 	
 func _process(delta) -> void:	
 	if selecionado:
@@ -23,3 +23,7 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	selecionado = false
 	sprite.scale = Vector2(1 , 1)
+
+func atualiza_figura() -> void:
+	sprite.texture = figura.imagem
+	label.text = str(figura.valor)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://sus8fopgw5dq"]
+
+[ext_resource type="Texture2D" uid="uid://cee7a7hp7y0iq" path="res://figuras/imagens/um_quadrado_branco.png" id="1_go4bb"]
+[ext_resource type="Script" path="res://cubinho.gd" id="2_xkg2u"]
+
+[node name="cubinho_teste" type="Sprite2D"]
+position = Vector2(176, 120)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_go4bb")
+script = ExtResource("2_xkg2u")

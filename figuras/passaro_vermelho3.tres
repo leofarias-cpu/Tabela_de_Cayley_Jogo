@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Figura" load_steps=3 format=3 uid="uid://tx3q56gwjmdy"]
+
+[ext_resource type="Texture2D" uid="uid://c2js0ssx4pk5g" path="res://figuras/imagens/passaro_vermelho.png" id="1_ghqqk"]
+[ext_resource type="Script" path="res://scripts/figura.gd" id="1_hacqu"]
+
+[resource]
+script = ExtResource("1_hacqu")
+imagem = ExtResource("1_ghqqk")
+valor = 4

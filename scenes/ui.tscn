@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://x6p6bjkl41mr"]
+[gd_scene load_steps=8 format=3 uid="uid://x6p6bjkl41mr"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_t23cu"]
 [ext_resource type="PackedScene" uid="uid://u1c2nt3njtlc" path="res://scenes/painel.tscn" id="2_4yo4k"]
 [ext_resource type="PackedScene" uid="uid://bj2wy0apfk1pj" path="res://scenes/matriz.tscn" id="2_5fbm0"]
+[ext_resource type="PackedScene" uid="uid://cvkayxtn0xl65" path="res://scenes/seguravel.tscn" id="3_n2jr1"]
 [ext_resource type="Script" path="res://scenes/Button.gd" id="4_0vfuc"]
 [ext_resource type="Script" path="res://scenes/area_matriz.gd" id="4_uyxxv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt6l7"]
-size = Vector2(0, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uy4j"]
+size = Vector2(370.909, 370.909)
 
-[node name="Ui" type="Control"]
+[node name="Ui" type="Control" node_paths=PackedStringArray("grid", "seguraveis")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +18,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t23cu")
+grid = NodePath("MarginContainer/AspectRatioContainer/GridContainer")
+seguraveis = NodePath("MarginContainer/caixa_seguraveis")
 painel_packed = ExtResource("2_4yo4k")
+seguravel = ExtResource("3_n2jr1")
 
 [node name="Matriz" parent="." instance=ExtResource("2_5fbm0")]
 dados = Array[PackedInt32Array]([PackedInt32Array(2, 0, 1), PackedInt32Array(0, 0, 1), PackedInt32Array(1, 1, 0)])
@@ -29,44 +33,69 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 160
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 160
+theme_override_constants/margin_bottom = 20
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/AspectRatioContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 3
 
-[node name="area_matriz" type="Area2D" parent="MarginContainer"]
-position = Vector2(628, 382)
+[node name="Control" type="Control" parent="MarginContainer/AspectRatioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="area_matriz" type="Area2D" parent="MarginContainer/AspectRatioContainer/Control"]
+position = Vector2(0, -4)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("4_uyxxv")
 
-[node name="colisao_matriz" type="CollisionShape2D" parent="MarginContainer/area_matriz"]
-shape = SubResource("RectangleShape2D_rt6l7")
+[node name="colisao_matriz" type="CollisionShape2D" parent="MarginContainer/AspectRatioContainer/Control/area_matriz"]
+position = Vector2(29.0909, 29.0909)
+shape = SubResource("RectangleShape2D_5uy4j")
 
-[node name="Button" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 597.0
-offset_top = 506.0
-offset_right = 665.0
-offset_bottom = 537.0
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
 theme_override_colors/icon_normal_color = Color(0.717647, 0.745098, 0.752941, 1)
 theme_override_colors/icon_pressed_color = Color(0.533333, 0.592157, 0.603922, 1)
 action_mode = 0
 text = "Cabeize"
 script = ExtResource("4_0vfuc")
 
+[node name="caixa_seguraveis" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 100
+
 [node name="ColorRect" type="ColorRect" parent="."]
-z_index = -2
+z_index = -3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.156863, 0.0509804, 0.231373, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
-[connection signal="mouse_entered" from="MarginContainer/area_matriz" to="MarginContainer/area_matriz" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/area_matriz" to="MarginContainer/area_matriz" method="_on_mouse_exited"]
-[connection signal="pressed" from="Button" to="." method="avalia"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 320)
+
+[connection signal="mouse_entered" from="MarginContainer/AspectRatioContainer/Control/area_matriz" to="MarginContainer/AspectRatioContainer/Control/area_matriz" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/AspectRatioContainer/Control/area_matriz" to="MarginContainer/AspectRatioContainer/Control/area_matriz" method="_on_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/Button" to="." method="avalia"]

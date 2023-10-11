@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Figura" load_steps=3 format=3 uid="uid://c638o5ykusfnt"]
 
-[ext_resource type="Texture2D" uid="uid://bb54yqmd18hyu" path="res://icon.svg" id="1_h6bax"]
+[ext_resource type="Texture2D" uid="uid://d1rr3lg4uf1o4" path="res://figuras/imagens/suit_diamonds.png" id="1_ctyxp"]
 [ext_resource type="Script" path="res://scripts/figura.gd" id="1_ni6sr"]
 
 [resource]
 script = ExtResource("1_ni6sr")
-imagem = ExtResource("1_h6bax")
+imagem = ExtResource("1_ctyxp")
 valor = 1

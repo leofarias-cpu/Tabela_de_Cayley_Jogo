@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhx1pk84157i3"]
+
+[ext_resource type="PackedScene" uid="uid://x6p6bjkl41mr" path="res://scenes/ui.tscn" id="1_m0v87"]
+
+[node name="level_teste2" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("1_m0v87")]
+
+[node name="Matriz" parent="CanvasLayer/Ui" index="0"]
+dados = Array[PackedInt32Array]([PackedInt32Array(2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)])
+
+[editable path="CanvasLayer/Ui"]

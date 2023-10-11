@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://b1gfxjkys024o"]
+
+[ext_resource type="Script" path="res://scripts/level_teste.gd" id="1_dokqf"]
+[ext_resource type="Script" path="res://scripts/figura.gd" id="2_etb6r"]
+[ext_resource type="PackedScene" uid="uid://x6p6bjkl41mr" path="res://scenes/ui.tscn" id="3_xx7tj"]
+
+[sub_resource type="Resource" id="Resource_a5m26"]
+script = ExtResource("2_etb6r")
+valor = 7
+
+[sub_resource type="Resource" id="Resource_l6j54"]
+script = ExtResource("2_etb6r")
+valor = 6
+
+[sub_resource type="Resource" id="Resource_j3arl"]
+script = ExtResource("2_etb6r")
+valor = 5
+
+[sub_resource type="Resource" id="Resource_n5gom"]
+script = ExtResource("2_etb6r")
+valor = 4
+
+[sub_resource type="Resource" id="Resource_76krk"]
+script = ExtResource("2_etb6r")
+valor = 3
+
+[sub_resource type="Resource" id="Resource_x6bp7"]
+script = ExtResource("2_etb6r")
+valor = 2
+
+[sub_resource type="Resource" id="Resource_xo7ug"]
+script = ExtResource("2_etb6r")
+valor = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wavcr"]
+size = Vector2(370.909, 370.909)
+
+[node name="level6" type="Node2D"]
+script = ExtResource("1_dokqf")
+rotulos = Array[ExtResource("2_etb6r")]([SubResource("Resource_a5m26"), SubResource("Resource_l6j54"), SubResource("Resource_j3arl"), SubResource("Resource_n5gom"), SubResource("Resource_76krk"), SubResource("Resource_x6bp7"), SubResource("Resource_xo7ug")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("3_xx7tj")]
+
+[node name="Matriz" parent="CanvasLayer/Ui" index="0"]
+dados = Array[PackedInt32Array]([PackedInt32Array(7, 0, 1, 0, 0, 0, 0), PackedInt32Array(0, 0, 1, 0, 0, 0, 0), PackedInt32Array(1, 1, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0)])
+eh_soma = false
+
+[node name="colisao_matriz" parent="CanvasLayer/Ui/MarginContainer/AspectRatioContainer/Control/area_matriz" index="0"]
+position = Vector2(32.7272, 32.7272)
+shape = SubResource("RectangleShape2D_wavcr")
+
+[node name="caixa_seguraveis" parent="CanvasLayer/Ui/MarginContainer" index="2"]
+columns = 2
+
+[editable path="CanvasLayer/Ui"]
