@@ -9,14 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://c2js0ssx4pk5g" path="res://figuras/imagens/passaro_vermelho.png" id="7_0mnn8"]
 [ext_resource type="Texture2D" uid="uid://basgvoard2ofm" path="res://figuras/imagens/suit_hearts.png" id="7_m3dqn"]
 [ext_resource type="PackedScene" uid="uid://bsm6vm7st2h68" path="res://scenes/level_selec_button.tscn" id="7_ps5er"]
-[ext_resource type="Texture2D" uid="uid://no4jsgq51c1j" path="res://figuras/imagens/passaro_amarelo.png" id="8_erc42"]
+[ext_resource type="Texture2D" uid="uid://bjtj3oahmcrt6" path="res://figuras/imagens/passaro_azul.png" id="8_yq5sy"]
 [ext_resource type="Texture2D" uid="uid://cssqev2g2tu1b" path="res://figuras/imagens/virus1.png" id="9_vb51f"]
 [ext_resource type="Texture2D" uid="uid://dnqnjbv3et8ar" path="res://figuras/imagens/ruby.png" id="10_yidfh"]
 
 [node name="level_select" type="CanvasLayer" node_paths=PackedStringArray("botoes")]
 script = ExtResource("1_6g81s")
 niveis = Array[PackedScene]([ExtResource("2_jvf4y"), ExtResource("3_ltiow"), ExtResource("4_dn4l4"), ExtResource("5_v0f8k"), ExtResource("6_1w70w")])
-trofeis = Array[Texture2D]([ExtResource("7_m3dqn"), ExtResource("8_erc42"), ExtResource("9_vb51f"), ExtResource("10_yidfh"), null])
+trofeis = Array[Texture2D]([ExtResource("7_m3dqn"), ExtResource("8_yq5sy"), ExtResource("9_vb51f"), ExtResource("10_yidfh"), null])
 botoes = NodePath("MarginContainer/AspectRatioContainer/VBoxContainer/botoes_niveis")
 botao_packed = ExtResource("7_ps5er")
 
