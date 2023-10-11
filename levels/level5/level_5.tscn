@@ -1,8 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4ird3g0ejfip"]
+[gd_scene load_steps=26 format=3 uid="uid://c4ird3g0ejfip"]
 
 [ext_resource type="Script" path="res://scripts/level_teste.gd" id="1_onkgc"]
 [ext_resource type="Script" path="res://scripts/figura.gd" id="2_7cvss"]
 [ext_resource type="PackedScene" uid="uid://x6p6bjkl41mr" path="res://scenes/ui.tscn" id="3_cljyn"]
+[ext_resource type="Texture2D" uid="uid://r4fu2uu8gk5d" path="res://figuras/imagens/reshot-icon-angry-89V6AQK7MW.png" id="3_uu3os"]
+[ext_resource type="Texture2D" uid="uid://b0ask55c5l64g" path="res://figuras/imagens/reshot-icon-excited-Z6NPFAH5XT.png" id="4_ap2ku"]
+[ext_resource type="Texture2D" uid="uid://bskraauc3ci4l" path="res://figuras/imagens/reshot-icon-glasses-unhappy-K69YWU57PV.png" id="5_icbqw"]
+[ext_resource type="Texture2D" uid="uid://du7dqgkki3heh" path="res://figuras/imagens/reshot-icon-happy-VPC3DYTQSW.png" id="6_0gonw"]
+[ext_resource type="Texture2D" uid="uid://3firloqipouj" path="res://figuras/imagens/reshot-icon-money-S6DHLMN347.png" id="7_23r0u"]
+[ext_resource type="Texture2D" uid="uid://dnu7hyf0y57q0" path="res://figuras/imagens/reshot-icon-moustache-2V9ETQCXPB.png" id="8_qhbfo"]
+[ext_resource type="Texture2D" uid="uid://bq21i5aogailu" path="res://figuras/imagens/reshot-icon-shocked-WDLSJMP64G.png" id="9_2jbur"]
+[ext_resource type="Texture2D" uid="uid://b4f2omiu77p6m" path="res://figuras/imagens/reshot-icon-sick-XSH9T6JPLZ.png" id="10_472xr"]
+[ext_resource type="Texture2D" uid="uid://ciwwuj111ev68" path="res://figuras/imagens/reshot-icon-sleep-9VGKR234U8.png" id="11_x8cif"]
+[ext_resource type="Texture2D" uid="uid://cn45bxasq7qo1" path="res://figuras/imagens/reshot-icon-glasses-kiss-YUSND43AHW.png" id="12_p2l5b"]
 
 [sub_resource type="Resource" id="Resource_57bub"]
 script = ExtResource("2_7cvss")
@@ -10,42 +20,52 @@ valor = 11
 
 [sub_resource type="Resource" id="Resource_r78bf"]
 script = ExtResource("2_7cvss")
+imagem = ExtResource("3_uu3os")
 valor = 1
 
 [sub_resource type="Resource" id="Resource_ixlpk"]
 script = ExtResource("2_7cvss")
+imagem = ExtResource("4_ap2ku")
 valor = 2
 
 [sub_resource type="Resource" id="Resource_4jjtt"]
 script = ExtResource("2_7cvss")
+imagem = ExtResource("5_icbqw")
 valor = 3
 
 [sub_resource type="Resource" id="Resource_dcefq"]
 script = ExtResource("2_7cvss")
+imagem = ExtResource("6_0gonw")
 valor = 4
 
 [sub_resource type="Resource" id="Resource_3jenw"]
 script = ExtResource("2_7cvss")
+imagem = ExtResource("7_23r0u")
 valor = 5
 
 [sub_resource type="Resource" id="Resource_3ypdn"]
 script = ExtResource("2_7cvss")
+imagem = ExtResource("8_qhbfo")
 valor = 6
 
 [sub_resource type="Resource" id="Resource_16q6m"]
 script = ExtResource("2_7cvss")
+imagem = ExtResource("9_2jbur")
 valor = 7
 
 [sub_resource type="Resource" id="Resource_fccjy"]
 script = ExtResource("2_7cvss")
+imagem = ExtResource("10_472xr")
 valor = 8
 
 [sub_resource type="Resource" id="Resource_3i0xw"]
 script = ExtResource("2_7cvss")
+imagem = ExtResource("11_x8cif")
 valor = 9
 
 [sub_resource type="Resource" id="Resource_pewlo"]
 script = ExtResource("2_7cvss")
+imagem = ExtResource("12_p2l5b")
 valor = 10
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdi21"]
@@ -54,14 +74,19 @@ size = Vector2(640, 669.091)
 [node name="level5" type="Node2D"]
 script = ExtResource("1_onkgc")
 rotulos = Array[ExtResource("2_7cvss")]([SubResource("Resource_57bub"), SubResource("Resource_r78bf"), SubResource("Resource_ixlpk"), SubResource("Resource_4jjtt"), SubResource("Resource_dcefq"), SubResource("Resource_3jenw"), SubResource("Resource_3ypdn"), SubResource("Resource_16q6m"), SubResource("Resource_fccjy"), SubResource("Resource_3i0xw"), SubResource("Resource_pewlo")])
+iniciais = Array[String](["114362783495", "7538", "4994", "1499", "397793", "16743298", "1792", "4297", "9133761991", "7348693796"])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="Ui" parent="CanvasLayer" instance=ExtResource("3_cljyn")]
 
 [node name="Matriz" parent="CanvasLayer/Ui" index="0"]
-dados = Array[PackedInt32Array]([PackedInt32Array(10, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)])
+dados = Array[PackedInt32Array]([PackedInt32Array(10, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1), PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1), PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1), PackedInt32Array(0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1), PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1), PackedInt32Array(0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1), PackedInt32Array(0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1), PackedInt32Array(0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1), PackedInt32Array(0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1), PackedInt32Array(0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1), PackedInt32Array(0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)])
 eh_soma = false
+
+[node name="MarginContainer" parent="CanvasLayer/Ui" index="1"]
+theme_override_constants/margin_left = 50
 
 [node name="colisao_matriz" parent="CanvasLayer/Ui/MarginContainer/AspectRatioContainer/Control/area_matriz" index="0"]
 position = Vector2(29.0909, 7.27271)
@@ -69,5 +94,8 @@ shape = SubResource("RectangleShape2D_vdi21")
 
 [node name="caixa_seguraveis" parent="CanvasLayer/Ui/MarginContainer" index="2"]
 columns = 2
+
+[node name="ColorRect" parent="CanvasLayer/Ui" index="2"]
+color = Color(0.156863, 0.0509804, 0.231373, 1)
 
 [editable path="CanvasLayer/Ui"]

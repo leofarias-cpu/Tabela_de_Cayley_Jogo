@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Global="*res://scenes/global.tscn"
 
+[display]
+
+window/size/viewport_width=1428
+window/size/viewport_height=814
+
 [editor]
 
 movie_writer/movie_file="C:/garoto de programa/GodotProjects/TabelaDeCayley/movies/movies.avi"

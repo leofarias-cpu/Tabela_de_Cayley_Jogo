@@ -10,7 +10,6 @@ extends Node
 
 signal linha_movida(index: int, dir: int)
 signal coluna_movida(index: int, dir: int)
-signal figura_avaliada(Posicao: Vector2, ta_certa: bool)
 
 
 func _ready() -> void: 
@@ -52,22 +51,21 @@ func move_coluna(j, dir) -> void:
 	coluna_movida.emit(j, dir)
 		
 		
-func avalia() -> bool:
+func avalia() -> Array:
+	var identidade = dados.duplicate(true)
 	for i in range(1, dados.size()):
 		for j in range(1, dados[0].size()):
 			if eh_soma: #Calcula se os rótulos naquela posição(0,j e i,0) somados equivalem o ponto em (i,j)
 				if (dados[0][j] + dados[i][0]) % dados[0][0] == dados[i][j]: 
-					figura_avaliada.emit(Vector2(i, j), true)
+					identidade[i][j] = 1
 				else: 
-					figura_avaliada.emit(Vector2(i, j), false)
-					return false
+					identidade[i][j] = 0
 			else: #Calcula se os rótulos naquela posição(0,j e i,0) multiplicados equivalem o ponto em (i,j)
 				if (dados[0][j] * dados[i][0]) % dados[0][0] == dados[i][j]:
-					figura_avaliada.emit(Vector2(i, j), true)
+					identidade[i][j] = 1
 				else: 
-					figura_avaliada.emit(Vector2(i, j), false)
-					return false
-	return true
+					identidade[i][j] = 0
+	return identidade
 	
 func exibe_dados() -> void:
 	for linha in dados:

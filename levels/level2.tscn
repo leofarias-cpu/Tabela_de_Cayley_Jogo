@@ -18,7 +18,7 @@ size = Vector2(320, 305.455)
 [node name="level2" type="Node2D"]
 script = ExtResource("1_ltctl")
 rotulos = Array[ExtResource("2_uo6eu")]([SubResource("Resource_b4wga"), ExtResource("3_pojwk"), ExtResource("4_cgst0"), ExtResource("5_6iejb"), ExtResource("6_to5p6")])
-iniciais = Array[String](["11", "1243", "31", "14"])
+iniciais = Array[String](["11", "1243", "3124", "1422"])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1

@@ -5,6 +5,8 @@ extends Control
 @export var seguraveis: GridContainer
 @export var painel_packed: PackedScene
 @export var seguravel: PackedScene
+@export var figuras_necessarias_pra_avaliar: int
+var cont_figuras = 0
 var paineis: Array
 
 func _process(delta):
@@ -15,7 +17,6 @@ func _process(delta):
 
 func _ready():
 	grid.columns = matriz.dados[0].size()
-	matriz.figura_avaliada.connect(exibe_avaliacao)
 	
 #Setup da matriz de paineis, de indices equivalentes da matriz de valores
 	for i in range(matriz.dados.size()):
@@ -64,9 +65,18 @@ func define_figuras_iniciais(posicoes, rotulos) -> void:
 
 func avalia() -> void:
 	matriz.exibe_dados()
-	if matriz.avalia():
+	var identidade = matriz.avalia()
+	var acertou = true
+	for i in range(1, len(identidade)):
+		for j in range(1, len(identidade)):
+			exibe_avaliacao(Vector2(i, j), identidade[i][j])
+			if not identidade[i][j]:
+				acertou = false
+				
+	if acertou:
 		Global.niveis_completos[Global.nivel_atual] = true
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(6).timeout
+		reseta_paineis()
 		Global.volta_pro_level_select()
 	else:
 		await get_tree().create_timer(3).timeout
@@ -83,6 +93,14 @@ func reseta_quadrados() -> void:
 		for j in range(1, len(matriz.dados)):
 			paineis[i][j].reseta_quadrado()
 
-func on_mudanca(posicao: Vector2, valor: int) -> void:
+func on_mudanca(posicao: Vector2,  valor: int) -> void:
 	matriz.dados[posicao.x][posicao.y] = valor
+	cont_figuras += 1
+	if cont_figuras >= figuras_necessarias_pra_avaliar:
+		pass
 	
+
+func reseta_paineis() -> void:
+	for i in range(len(paineis)):
+		for j in range(len(paineis)):
+			paineis[i][j].tira_figura()

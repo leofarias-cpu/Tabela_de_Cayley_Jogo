@@ -13,7 +13,7 @@ size = Vector2(218.182, 218.182)
 [node name="level1" type="Node2D"]
 script = ExtResource("1_jtlyw")
 rotulos = Array[Resource("res://scripts/figura.gd")]([ExtResource("2_ljhqm"), ExtResource("3_2kvmk"), ExtResource("4_pgrbx")])
-iniciais = Array[String](["", "21", ""])
+iniciais = Array[String](["11", "", ""])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -22,7 +22,10 @@ layer = -1
 size_flags_horizontal = 4
 
 [node name="Matriz" parent="CanvasLayer/Ui" index="0"]
-dados = Array[PackedInt32Array]([PackedInt32Array(2, 0, 1), PackedInt32Array(0, -99, -99), PackedInt32Array(1, -99, -99)])
+dados = Array[PackedInt32Array]([PackedInt32Array(2, -1, -1), PackedInt32Array(0, -99, -99), PackedInt32Array(1, -99, -99)])
+
+[node name="MarginContainer" parent="CanvasLayer/Ui" index="1"]
+theme_override_constants/margin_bottom = 30
 
 [node name="colisao_matriz" parent="CanvasLayer/Ui/MarginContainer/AspectRatioContainer/Control/area_matriz" index="0"]
 position = Vector2(7.27271, 7.27271)
@@ -37,5 +40,11 @@ figura = ExtResource("3_2kvmk")
 visible = false
 layout_mode = 2
 figura = ExtResource("4_pgrbx")
+
+[node name="Label" type="Label" parent="CanvasLayer/Ui/MarginContainer" index="3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "As figuras não podem se repetir na mesma linha ou coluna, excluindo os rótulos (partes mais claras)"
 
 [editable path="CanvasLayer/Ui"]

@@ -50,7 +50,7 @@ size = Vector2(378.182, 378.182)
 [node name="level3" type="Node2D"]
 script = ExtResource("1_qmbl2")
 rotulos = Array[ExtResource("2_qaujf")]([SubResource("Resource_vw4wi"), SubResource("Resource_48dqd"), SubResource("Resource_f14op"), SubResource("Resource_7q2em"), SubResource("Resource_s0jjk"), SubResource("Resource_217cg"), SubResource("Resource_fg14i")])
-iniciais = Array[String](["11", "12", "4655", "32", "24", "6152"])
+iniciais = Array[String](["11", "12", "224655", "", "241551", "6152"])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -58,10 +58,13 @@ layer = -1
 [node name="Ui" parent="CanvasLayer" instance=ExtResource("3_3ie17")]
 
 [node name="Matriz" parent="CanvasLayer/Ui" index="0"]
-dados = Array[PackedInt32Array]([PackedInt32Array(6, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, 0, 0, 0, 0, 0, 0)])
+dados = Array[PackedInt32Array]([PackedInt32Array(6, 0, 0, 0, 0, 0, 0), PackedInt32Array(0, -1, -1, -1, -1, -1, -1), PackedInt32Array(0, -1, -1, -1, -1, -1, -1), PackedInt32Array(0, -1, -1, -1, -1, -1, -1), PackedInt32Array(0, -1, -1, -1, -1, -1, -1), PackedInt32Array(0, -1, -1, -1, -1, -1, -10), PackedInt32Array(0, -1, -1, -1, -78, -1, -1)])
 
 [node name="colisao_matriz" parent="CanvasLayer/Ui/MarginContainer/AspectRatioContainer/Control/area_matriz" index="0"]
 shape = SubResource("RectangleShape2D_eusjv")
+
+[node name="caixa_seguraveis" parent="CanvasLayer/Ui/MarginContainer" index="2"]
+columns = 2
 
 [node name="ColorRect" parent="CanvasLayer/Ui" index="2"]
 z_index = -5
